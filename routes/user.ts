@@ -48,6 +48,21 @@ router.post(
   }
 );
 
-//user
+//user purchased courses fetch
+router.get(
+  "/purchasedCourses",
+  userMiddleware,
+  async (req: Request, res: Response) => {
+    const username = req.headers.username;
+
+    const purchasedCourseList = await User.findOne({
+      name: username,
+    });
+
+    res.json({
+      purchasedCourses: purchasedCourseList.purchasedCourses,
+    });
+  }
+);
 
 module.exports = router;

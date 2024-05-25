@@ -16,12 +16,10 @@ async function userMiddleware(
   const username = req.headers.username;
   const password = req.headers.password;
 
-  console.log(req.headers);
   const dbInstance = await User.findOne({
     name: username,
     password,
   });
-  console.log(dbInstance);
 
   if (dbInstance !== null) {
     console.log("user exists");

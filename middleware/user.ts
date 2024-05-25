@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-const { Admin } = require("../db/index");
+const { User } = require("../db/index");
 
 interface AuthHeaders extends Express.Request {
   headers: {
@@ -8,7 +8,7 @@ interface AuthHeaders extends Express.Request {
   };
 }
 
-async function adminMiddleware(
+async function userMiddleware(
   req: AuthHeaders,
   res: Response,
   next: NextFunction
@@ -16,10 +16,12 @@ async function adminMiddleware(
   const username = req.headers.username;
   const password = req.headers.password;
 
-  const dbInstance = await Admin.findOne({
-    username,
+  console.log(req.headers);
+  const dbInstance = await User.findOne({
+    name: username,
     password,
   });
+  console.log(dbInstance);
 
   if (dbInstance !== null) {
     console.log("user exists");
@@ -29,4 +31,4 @@ async function adminMiddleware(
   }
 }
 
-module.exports = adminMiddleware;
+module.exports = userMiddleware;

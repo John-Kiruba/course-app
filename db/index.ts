@@ -1,3 +1,5 @@
+import { Schema } from "mongoose";
+
 const mongoose = require("mongoose");
 const fs = require("fs");
 const ini = require("ini");
@@ -5,7 +7,6 @@ const ini = require("ini");
 const credFile = fs.readFileSync("config.ini", "utf-8");
 
 const config = ini.parse(credFile);
-console.log(config);
 
 const DB_URI = config.credentials.DB_CONNECT_URI;
 const DB_CONNECT_URI = DB_URI;
@@ -17,7 +18,7 @@ async function main() {
 main().catch((err) => console.log(err));
 
 //adminSchema
-const AdminSchema = new mongoose.Schema({
+const AdminSchema: Schema = new mongoose.Schema({
   username: String,
   password: String,
   age: Number,

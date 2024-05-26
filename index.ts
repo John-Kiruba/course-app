@@ -17,6 +17,8 @@ app.get("/", (req: Request, res: Response) => {
   return "Hello World";
 });
 
+// app.get("/dummy", (req, res) => {});
+
 app.listen(PORT, () => {
   console.log("Listening on port 3000");
 });

@@ -1,31 +1,39 @@
 import { Request, Response, NextFunction } from "express";
 const { User } = require("../db/index");
 
-interface AuthHeaders extends Express.Request {
-  headers: {
-    username?: string;
-    password?: string;
-  };
-}
+const jwt = require("jsonwebtoken");
+import { JWT_SECRET as jwt_secret } from "../index";
+
+import { AuthHeaders } from "./admin";
 
 async function userMiddleware(
   req: AuthHeaders,
   res: Response,
   next: NextFunction
 ) {
-  const username = req.headers.username;
-  const password = req.headers.password;
+  //implement JWT Authentication
 
-  const dbInstance = await User.findOne({
-    name: username,
-    password,
-  });
+  //But still need to implement Authorization
+  const authorizationHeader = req.headers.authorization;
 
-  if (dbInstance !== null) {
-    console.log("user exists");
+  if (!authorizationHeader) {
+    return res.status(401).send(" Unauthorized: No token Provided ");
+  }
+
+  const [bearer, token] = authorizationHeader.split(" ");
+
+  if (bearer !== "Bearer" || !token) {
+    return res.status(401).send("Unauthorized: Invalid token format");
+  }
+
+  const decodedValue = jwt.verify(token, jwt_secret);
+
+  if (decodedValue.username) {
     next();
   } else {
-    res.status(403).send("Permission denied");
+    return res.status(403).json({
+      message: "You are not authenticated",
+    });
   }
 }
 

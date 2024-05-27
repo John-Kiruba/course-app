@@ -1,10 +1,11 @@
 import { Request, Response, NextFunction } from "express";
 const { Admin } = require("../db/index");
+const jwt = require("jsonwebtoken");
+import { JWT_SECRET as jwt_secret } from "../index";
 
-interface AuthHeaders extends Express.Request {
+export interface AuthHeaders extends Express.Request {
   headers: {
-    username?: string;
-    password?: string;
+    authorization?: string;
   };
 }
 
@@ -13,19 +14,27 @@ async function adminMiddleware(
   res: Response,
   next: NextFunction
 ) {
-  const username = req.headers.username;
-  const password = req.headers.password;
+  //implement JWT Authorization
+  const authorizationHeader = req.headers.authorization;
 
-  const dbInstance = await Admin.findOne({
-    username,
-    password,
-  });
+  if (!authorizationHeader) {
+    return res.status(401).send(" Unauthorized: No token Provided ");
+  }
 
-  if (dbInstance !== null) {
-    console.log("user exists");
+  const [bearer, token] = authorizationHeader.split(" ");
+
+  if (bearer !== "Bearer" || !token) {
+    return res.status(401).send("Unauthorized: Invalid token format");
+  }
+
+  const decodedValue = jwt.verify(token, jwt_secret);
+
+  if (decodedValue.username) {
     next();
   } else {
-    res.status(403).send("Permission denied");
+    return res.status(403).json({
+      message: "You are not authenticated",
+    });
   }
 }
 

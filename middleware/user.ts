@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-const { User } = require("../db/index");
+// const { User } = require("../db/index");
 
 const jwt = require("jsonwebtoken");
 import { JWT_SECRET as jwt_secret } from "../index";
@@ -16,6 +16,7 @@ async function userMiddleware(
   //But still need to implement Authorization
   const authorizationHeader = req.headers.authorization;
 
+  // console.log(authorizationHeader);
   if (!authorizationHeader) {
     return res.status(401).send(" Unauthorized: No token Provided ");
   }
@@ -29,6 +30,7 @@ async function userMiddleware(
   const decodedValue = jwt.verify(token, jwt_secret);
 
   if (decodedValue.username) {
+    req.username = decodedValue.username;
     next();
   } else {
     return res.status(403).json({

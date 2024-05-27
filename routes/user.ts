@@ -1,9 +1,13 @@
 import { Router, Request, Response } from "express";
-
+const jwt = require("jsonwebtoken");
 const userMiddleware = require("../middleware/user");
 const { User } = require("../db/index");
 
 const router = Router();
+
+export interface AuthData extends Express.Request {
+  username?: string;
+}
 
 router.get("/", (_req: Request, res: Response) => {
   console.log("res from admin router");
@@ -27,26 +31,10 @@ router.post("/signup", async (req: Request, res: Response) => {
 });
 
 //usercourses puchase logic
-router.post(
-  "/courses/:courseId",
-  userMiddleware,
-  async (req: Request, res: Response) => {
-    const courseId = req.params.courseId;
-    const username = req.headers.username;
-
-    await User.updateOne(
-      { name: username },
-      {
-        $push: {
-          purchasedCourses: courseId,
-        },
-      }
-    );
-    res.json({
-      message: "Purchase Completed",
-    });
-  }
-);
+router.post("/courses/:courseId", userMiddleware, async (req: AuthData) => {
+  const username = req.username;
+  console.log(username);
+});
 
 //user purchased courses fetch
 router.get(

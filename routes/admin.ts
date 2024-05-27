@@ -55,6 +55,8 @@ router.post("/signin", async (req, res) => {
       },
       jwt_secret
     );
+
+    res.json({ token });
   } else {
     res.status(411).json({
       message: "Incorrect Credentials",

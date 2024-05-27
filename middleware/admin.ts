@@ -1,9 +1,10 @@
 import { Request, Response, NextFunction } from "express";
-const { Admin } = require("../db/index");
+// const { Admin } = require("../db/index");
 const jwt = require("jsonwebtoken");
 import { JWT_SECRET as jwt_secret } from "../index";
 
 export interface AuthHeaders extends Express.Request {
+  username?: string;
   headers: {
     authorization?: string;
   };
@@ -30,6 +31,7 @@ async function adminMiddleware(
   const decodedValue = jwt.verify(token, jwt_secret);
 
   if (decodedValue.username) {
+    req.username = decodedValue.username;
     next();
   } else {
     return res.status(403).json({

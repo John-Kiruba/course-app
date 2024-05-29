@@ -1,0 +1,11 @@
+ - create frontend 
+    - login page
+    - admin dashboard
+    - user dashboard
+    - navbar
+    - user profile
+    - course available list
+
+ - create authorization
+    - user authorization
+    - guest authorization

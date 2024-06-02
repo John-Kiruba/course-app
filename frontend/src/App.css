@@ -1,0 +1,20 @@
+#input-field {
+  @apply border border-gray-300 rounded-lg p-3 w-full  transition-all duration-300;
+}
+
+#input-field:focus {
+  @apply focus:outline-dashed focus:outline-gray-400 focus:border-transparent placeholder:invisible;
+}
+
+.labelAppearance {
+  @apply absolute text-sm  text-gray-500 transition-all duration-300 pointer-events-none;
+  top: 20%;
+  left: 7%;
+  transform: translateY(-50%);
+  opacity: 0;
+}
+
+#input-field:focus + .labelAppearance {
+  @apply left-5 top-[10px] opacity-100 bg-white z-10 p-1;
+  -webkit-backface-visibility: hidden;
+}

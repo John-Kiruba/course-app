@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Login } from "./components/Login";
 import { Signup } from "./components/Signup";
+import { Navbar } from "./components/Navbar";
 import "./App.css";
 
 function App() {
@@ -8,8 +9,9 @@ function App() {
 
   return (
     <div>
+      <Navbar />
       <Login />
-      <Signup />
+      {/* <Signup /> */}
     </div>
   );
 }

@@ -1,8 +1,8 @@
-#input-field {
+.input-field {
   @apply border border-gray-300 rounded-lg p-3 w-full  transition-all duration-300;
 }
 
-#input-field:focus {
+.input-field:focus {
   @apply focus:outline-dashed focus:outline-gray-400 focus:border-transparent placeholder:invisible;
 }
 
@@ -14,7 +14,7 @@
   opacity: 0;
 }
 
-#input-field:focus + .labelAppearance {
-  @apply left-5 top-[10px] opacity-100 bg-white z-10 p-1;
-  -webkit-backface-visibility: hidden;
+.input-field:focus + .labelAppearance,
+.input-field:not(:placeholder-shown) + .labelAppearance {
+  @apply left-5 top-[0px] opacity-100 bg-white z-10 pl-[3px] pr-[3px] pb-[3px];
 }

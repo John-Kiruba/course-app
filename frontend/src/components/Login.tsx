@@ -48,7 +48,7 @@ export function Login(): React.ReactElement {
                 </div>
 
                 <div className="mt-4 mb-2 flex flex-wrap justify-center items-center">
-                  <button className="p-3 w-3/5  bg-red-500 text-white tracking-wider hover:text-slate-100 hover: hover:bg-pink-500 hover:shadow-xl hover:-translate-y-[1px] rounded-full active:bg-gradient-to-r active:from-pink-500 active:to-violet-600 transition-all duration-200 ">
+                  <button className="p-3 w-3/5  bg-red-500 text-white tracking-wider hover:text-slate-100 hover: hover:bg-pink-500 hover:shadow-xl hover:-translate-y-[1px] rounded-full active:bg-gradient-to-r active:from-pink-500 active:to-violet-600 transition-all duration-300 ">
                     Login
                   </button>
                 </div>

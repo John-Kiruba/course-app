@@ -7,7 +7,7 @@
 }
 
 .labelAppearance {
-  @apply absolute text-sm  text-gray-500 transition-all duration-300 pointer-events-none;
+  @apply absolute text-sm  text-gray-500 transition-all ease-in duration-200 pointer-events-none;
   top: 20%;
   left: 7%;
   transform: translateY(-50%);
@@ -16,5 +16,7 @@
 
 .input-field:focus + .labelAppearance,
 .input-field:not(:placeholder-shown) + .labelAppearance {
-  @apply left-5 top-[0px] opacity-100 bg-white z-10 pl-[3px] pr-[3px] pb-[3px];
+  @apply left-4 top-[0px] opacity-100 bg-white z-10 pl-[3px] pr-[3px] pb-[3px];
 }
+
+/* //navbar css */

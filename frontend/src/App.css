@@ -20,3 +20,10 @@
 }
 
 /* //navbar css */
+.nav-container {
+  z-index: 1000;
+}
+
+#container {
+  z-index: 10;
+}

@@ -11,6 +11,9 @@ function App() {
     <div>
       <Navbar />
       <Login />
+      <Login />
+      <Login />
+      <Login />
 
       {/* <Signup /> */}
     </div>

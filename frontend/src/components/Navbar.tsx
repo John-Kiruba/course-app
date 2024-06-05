@@ -5,9 +5,9 @@ export function Navbar(): React.ReactElement {
 
   return (
     <>
-      <div className="fixed w-full max-w-full mx-auto border shadow-md min-h-10 nav-container">
-        <div className="  top-0  bg-[#FFEBEC] ">
-          <nav className="flex flex-row items-center justify-center p-3 py-4 text-transparent shadow-black/5 bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500">
+      <div className="sticky top-0 left-0 w-[98%] max-w-full mt-2 ml-4 mr-4 border shadow-md nav-container  bg-[#FFEBEC]">
+        <div className="p-3 text-transparent border bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500">
+          <nav className="flex flex-row items-center justify-center p-3 py-3 text-transparent shadow-black/5 bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500">
             <div className="flex-grow ml-4">
               <span>Logo</span>
             </div>

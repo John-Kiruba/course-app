@@ -37,3 +37,7 @@
 #container {
   z-index: 10;
 }
+
+.nav-items {
+  @apply font-sans font-semibold text-2xl text-indigo-500;
+}

@@ -4,6 +4,7 @@ import { Signup } from "./components/Signup";
 import { Navbar } from "./components/Navbar";
 
 import "./App.css";
+import { Carousel } from "./components/Carousel";
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -11,10 +12,9 @@ function App() {
   return (
     <div>
       <Navbar />
-      {/* <Login />
-      <Login />
-      <Login /> */}
-
+      <div className="w-[60%] md:w-[80%]  m-auto">
+        <Carousel />
+      </div>
       {/* <Signup /> */}
     </div>
   );

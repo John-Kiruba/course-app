@@ -15,7 +15,6 @@ function App() {
       <div className="w-[60%] md:w-[80%]  m-auto">
         <Carousel />
       </div>
-      {/* <Signup /> */}
     </div>
   );
 }

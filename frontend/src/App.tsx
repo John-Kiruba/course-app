@@ -5,6 +5,8 @@ import { Navbar } from "./components/Navbar";
 
 import "./App.css";
 import { Carousel } from "./components/Carousel";
+import { CalendarDaysIcon } from "@heroicons/react/24/outline";
+import { Card } from "./components/card";
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -12,9 +14,7 @@ function App() {
   return (
     <div>
       <Navbar />
-      <div className="w-[60%] md:w-[80%]  m-auto">
-        <Carousel />
-      </div>
+      <Card />
     </div>
   );
 }

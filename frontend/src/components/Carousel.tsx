@@ -35,7 +35,7 @@ export function Carousel() {
 
   return (
     <>
-      <div className="relative overflow-hidden">
+      <div className="relative overflow-hidden md:h-32 ">
         <div
           className={`flex transition ease-out duration-40 `}
           style={{ transform: `translateX(-${current * 100}%)` }}
@@ -46,7 +46,7 @@ export function Carousel() {
               <img
                 key={img.indexOf(i)}
                 src={i}
-                className="object-contain w-full md:w-[60%] md:h-64 md:items-center md:object-cover"
+                className="object-contain w-full md:w-[80%] md:h-[30%] md:flex md:gap-3"
               />
             );
           })}

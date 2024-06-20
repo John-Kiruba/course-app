@@ -18,6 +18,7 @@ export function Card() {
       );
     });
   }
+
   return (
     <>
       <div className="flex flex-col items-center justify-center  max-w-md max-h-96  mx-auto min-h-[10rem] md:min-h-[20rem] md:max-h-max shadow-xl shadow-indigo-500/10 rounded-md bg-slate-600 md:w-2/6  overflow-hidden ">
@@ -28,12 +29,12 @@ export function Card() {
 
         <div className="flex flex-col w-full bg-white h-36">
           <h2 className="p-2 mx-2 mt-1 font-mono">Alex Volkonosky</h2>
-          <div className="flex items-center justify-start mx-3 mt-1 divide-x">
-            <span className="p-2 font-mono font-medium text-indigo-500 ">
+          <div className="flex mx-2 mt-1 text-center divide-x justify-self-start">
+            <span className="p-2 pr-4 font-mono font-medium text-indigo-500 ">
               Cost: $ 24.22
             </span>
-            <span className="p-2 font-mono font-medium text-indigo-500">
-              reviews: 4.2
+            <span className="p-2 pl-4 font-mono font-medium text-indigo-500">
+              Reviews: 4.2
             </span>
           </div>
 

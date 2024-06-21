@@ -21,7 +21,7 @@ export function Card() {
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center  max-w-md max-h-96  mx-auto min-h-[10rem] md:min-h-[20rem] md:max-h-max shadow-xl shadow-indigo-500/10 rounded-md bg-slate-600 md:w-2/6  overflow-hidden ">
+      <div className="flex flex-col items-center justify-center mt-7 max-w-md max-h-96  mx-auto min-h-[10rem] md:min-h-[20rem] md:max-h-max shadow-xl shadow-indigo-500/10 rounded-md bg-slate-600 md:w-2/6  overflow-hidden ">
         <img
           src={records}
           className="flex items-start object-cover object-top w-full h-56 md:h-72 lg:h-96"

@@ -39,5 +39,5 @@
 }
 
 .nav-items {
-  @apply font-sans font-semibold text-2xl text-indigo-500;
+  @apply font-sans font-semibold text-sm md:text-lg text-indigo-500;
 }

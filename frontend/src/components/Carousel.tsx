@@ -35,7 +35,7 @@ export function Carousel() {
 
   return (
     <>
-      <div className="relative overflow-hidden md:h-32 ">
+      <div className="relative flex justify-center mx-auto mt-10 overflow-hidden md:h-56">
         <div
           className={`flex transition ease-out duration-40 `}
           style={{ transform: `translateX(-${current * 100}%)` }}

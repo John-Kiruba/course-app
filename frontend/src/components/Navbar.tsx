@@ -14,19 +14,22 @@ export function Navbar() {
     <>
       <div
         id="navbar-container"
-        className="sticky top-0 z-50 mx-4 my-4 shadow-xl sm:mx-auto max-w-7xl min-w-fit shadow-indigo-800/10 rounded-[10px]"
+        className="sticky top-0 z-50 mx-4 my-2 shadow-xl  max-w-7xl  shadow-indigo-800/10 rounded-[10px]"
       >
         <nav
           id="navbar"
-          className="relative flex items-center justify-between w-full  h-auto mx-auto bg-gray-200 max-h-20 rounded-[10px]"
+          className="relative flex items-center justify-between  bg-gray-200  rounded-[10px]"
         >
-          <div className="">
-            <img src={stripelogo} className="ml-3 size-20"></img>
+          <div className="py-2">
+            <img
+              src={stripelogo}
+              className="w-10 ml-3 md:size-16 md:h-10"
+            ></img>
           </div>
           <NavItems isOpen={isOpen} />
           <button
             onClick={handleMenu}
-            className="flex items-center justify-center w-10 mr-4 text-indigo-500 md:hidden"
+            className="flex items-center justify-center mr-4 text-indigo-500 size-6 md:hidden"
           >
             {isOpen ? <XMarkIcon /> : <Bars3Icon />}
           </button>

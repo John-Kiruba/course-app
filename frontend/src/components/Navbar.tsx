@@ -14,7 +14,7 @@ export function Navbar() {
     <>
       <div
         id="navbar-container"
-        className="sticky top-0 z-50 mx-4 my-2 shadow-xl  max-w-7xl  shadow-indigo-800/10 rounded-[10px]"
+        className="sticky top-0 z-50  my-2 shadow-xl mx-auto max-w-7xl  shadow-indigo-800/10 rounded-[10px]"
       >
         <nav
           id="navbar"

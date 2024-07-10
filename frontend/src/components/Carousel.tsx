@@ -1,65 +1,63 @@
-import dustin from "../assets/images/dustin.jpeg";
-import volk from "../assets/images/volk.jpeg";
-import recordPlayer from "../assets/images/record-player.jpg";
-import records from "../assets/images/records.jpeg";
-
-import {
-  BsFillArrowRightCircleFill,
-  BsFillArrowLeftCircleFill,
-} from "react-icons/bs";
-
 import { useState } from "react";
+type Slides = {
+  url: string;
+  title: string;
+};
 
-export function Carousel() {
-  const img: string[] = [volk, dustin, recordPlayer, records];
+export function Carousel({ slides }: { slides: Slides[] }) {
+  const [currentIndex, setCurrentIndex] = useState(1);
 
-  const [current, setCurrent] = useState<number>(0);
-
-  let previousImage = () => {
-    if (current === 0) {
-      setCurrent(img.length - 1);
+  function goToPrevious() {
+    if (currentIndex === 0) {
+      setCurrentIndex(slides.length - 1);
     } else {
-      setCurrent(current - 1);
+      setCurrentIndex(currentIndex - 1);
     }
-  };
+  }
 
-  let nextImage = () => {
-    if (current === img.length - 1) {
-      setCurrent(0);
+  function goToNext() {
+    if (currentIndex === slides.length - 1) {
+      setCurrentIndex(0);
     } else {
-      setCurrent((prevState: number) => {
-        return prevState + 1;
-      });
+      setCurrentIndex(currentIndex + 1);
     }
-  };
+  }
 
+  function goToIndex(slideIndex: number) {
+    setCurrentIndex(slideIndex);
+  }
   return (
-    <>
-      <div className="relative flex justify-center mx-auto mt-10 overflow-hidden md:h-56">
-        <div
-          className={`flex transition ease-out duration-40 `}
-          style={{ transform: `translateX(-${current * 100}%)` }}
-        >
-          {img.map((i) => {
-            console.log(i);
-            return (
-              <img
-                key={img.indexOf(i)}
-                src={i}
-                className="object-contain w-full md:w-[80%] md:h-[30%] md:flex md:gap-3"
-              />
-            );
-          })}
-        </div>
-        <div className="absolute top-0 flex items-center justify-between w-full h-full px-2 text-slate-300 ">
-          <button onClick={previousImage}>
-            <BsFillArrowLeftCircleFill />
-          </button>
-          <button onClick={nextImage}>
-            <BsFillArrowRightCircleFill />
-          </button>
-        </div>
+    <div className="relative w-full h-full">
+      <div
+        onClick={goToPrevious}
+        className="absolute top-[50%] left-3 -translate-y-[50%] text-4xl font-bold z-[1] text-gray-400 opacity-80 hover:opacity-100 hover:scale-105 hover:text-white transition-all duration-75 ease-in cursor-pointer"
+      >
+        ←
       </div>
-    </>
+      <div
+        onClick={goToNext}
+        className="absolute top-[50%] right-3 -translate-y-[50%] text-4xl font-bold z-[1] text-gray-400 opacity-80 hover:opacity-100 hover:scale-105 hover:text-white transition-all duration-75 ease-in cursor-pointer"
+      >
+        →
+      </div>
+
+      <div
+        style={{
+          backgroundImage: `url(${slides[currentIndex].url})`,
+        }}
+        className="w-full h-full bg-cover rounded-lg"
+      ></div>
+      <div className="flex justify-center overflow-hiden">
+        {slides.map((slide, slideIndex) => (
+          <div
+            key={slideIndex}
+            onClick={() => goToIndex(slideIndex)}
+            className="mx-1 text-4xl text-gray-500 transition-all duration-75 ease-out cursor-pointer cursio hover:text-black hover:scale-150 "
+          >
+            •
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
